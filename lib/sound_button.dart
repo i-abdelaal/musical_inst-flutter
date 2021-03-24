@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SoundButton extends StatelessWidget {
   final double buttonHeight;
   final double buttonVerticalPadding;
-  final MaterialColor buttonColor;
+  final Color buttonColor;
   final Function playSound;
   SoundButton(
       {@required this.buttonHeight,

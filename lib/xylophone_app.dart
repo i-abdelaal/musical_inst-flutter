@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'sound_button.dart';
 
 class XylophoneApp extends StatelessWidget {
-  final buttonHeight = 80.0;
-  final buttonVerticalPadding = 10.0;
   final player = AudioCache(prefix: 'assets/audio/');
   void playSound(int soundNumber) {
     player.play('note$soundNumber.wav');
@@ -22,14 +20,13 @@ class XylophoneApp extends StatelessWidget {
   ];
 
   List<Widget> buttonsList() {
-    List<Widget> widgetList = colors
-        .map((color) => SoundButton(
-            buttonColor: color,
-            buttonHeight: this.buttonHeight,
-            buttonVerticalPadding: this.buttonVerticalPadding,
-            playSound: () => playSound(colors.indexOf(color) + 1)))
-        .toList();
-    return widgetList;
+    return colors.map((color) {
+      return SoundButton(
+          buttonColor: color,
+          buttonHeight: 90.0,
+          buttonVerticalPadding: 7.0,
+          playSound: () => playSound(colors.indexOf(color) + 1));
+    }).toList();
   }
 
   @override
